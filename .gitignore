@@ -1,5 +1,5 @@
 # Ignore large data files
-filtered_data.json
+Assignment_2/filtered_data.json
 
 # Ignore Python cache files
 __pycache__/
