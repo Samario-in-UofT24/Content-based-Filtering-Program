@@ -4,7 +4,7 @@ from ADT_tree import Tree
 
 def build_genre_tree(path: str) -> Tree:
     """
-    Read a JSON list and build genrr to game Tree.
+    Read a JSON list and build a genre -> game Tree.
     """
 
     root = Tree("All Games", [])
