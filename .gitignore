@@ -1,0 +1,19 @@
+# Ignore large data files
+filtered_data.json
+
+# Ignore Python cache files
+__pycache__/
+*.pyc
+
+# Ignore logs
+*.log
+
+# Ignore patch files
+*.patch
+
+# Ignore temporary or backup files
+*.bak
+*.tmp
+
+# Ignore system files (macOS)
+.DS_Store
