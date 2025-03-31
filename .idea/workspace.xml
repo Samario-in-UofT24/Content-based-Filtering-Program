@@ -4,8 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="a1c8ee52-1ce9-41a8-bc10-7761ce899fa3" name="Changes" comment="Added file ADT_tree.py&#10;Added file tree_construction.py">
+    <list default="true" id="a1c8ee52-1ce9-41a8-bc10-7761ce899fa3" name="Changes" comment="update">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assignment_2/recommend_new.py" beforeDir="false" afterPath="$PROJECT_DIR$/Assignment_2/recommend_new.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -69,7 +70,7 @@
     &quot;Python.visualization.executor&quot;: &quot;Run&quot;,
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
     &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;ethan-branch&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
     &quot;last_opened_file_path&quot;: &quot;/Users/Ethan/PycharmProjects/CSC111_24-25_A2&quot;,
     &quot;settings.editor.selected.configurable&quot;: &quot;com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable&quot;
   }
@@ -84,7 +85,7 @@
       <recent name="$PROJECT_DIR$" />
     </key>
   </component>
-  <component name="RunManager" selected="Python.ADT_graph">
+  <component name="RunManager" selected="Python.steam_api">
     <configuration name="ADT_graph" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="CSC111_24-25_A2" />
       <option name="ENV_FILES" value="" />
@@ -228,9 +229,9 @@
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="Python.steam_api" />
         <item itemvalue="Python.ADT_graph" />
         <item itemvalue="Python.recommend_new" />
-        <item itemvalue="Python.steam_api" />
         <item itemvalue="Python.history" />
         <item itemvalue="Python.main" />
       </list>
@@ -284,14 +285,34 @@
       <option name="project" value="LOCAL" />
       <updated>1743044630279</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="update">
+      <option name="closed" value="true" />
+      <created>1743405849661</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1743405849661</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Add file" />
     <MESSAGE value="Add file classified_game.json&#10;Add file steam_applist.json (App id)&#10;Add file get_genre.py (Used to categorize games)" />
     <MESSAGE value="Changed file classified_game.json, change the genre to list&#10;Change file CSC 111 Project 2.docx, added information about genre at the end of the document" />
     <MESSAGE value="Added file ADT_tree.py&#10;Added file tree_construction.py" />
-    <option name="LAST_COMMIT_MESSAGE" value="Added file ADT_tree.py&#10;Added file tree_construction.py" />
+    <MESSAGE value="update" />
+    <option name="LAST_COMMIT_MESSAGE" value="update" />
   </component>
 </project>

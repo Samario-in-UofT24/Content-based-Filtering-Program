@@ -5,7 +5,7 @@ of game recommendations, genre distributions, and score comparisons.
 """
 import streamlit as st
 import plotly.express as px
-from Assignment_2.ADT_graph import build_recommendation_graph
+from ADT_graph import build_recommendation_graph
 
 
 def create_genre_distribution_chart(recommended_games: list, genre_map: dict) -> px.bar:

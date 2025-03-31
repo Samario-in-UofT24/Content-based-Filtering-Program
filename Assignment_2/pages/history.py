@@ -4,8 +4,8 @@ This file handles the search history page of the application, allowing users to 
 their previous searches and access cached recommendations.
 """
 import streamlit as st
-from Assignment_2.recommend_new import recommend_and_visualize
-from Assignment_2.steam_api import get_game_image_url, get_game_details
+from recommend_new import recommend_and_visualize
+from steam_api import get_game_image_url, get_game_details
 
 
 def featured_game() -> None:

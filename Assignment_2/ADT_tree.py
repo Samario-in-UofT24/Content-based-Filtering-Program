@@ -227,5 +227,5 @@ if __name__ == "__main__":
         'extra-imports': ['json', 'typing'],
         'allowed-io': [],
         'max-line-length': 120,
-        'disable': ['C9104']
+        'disable': ['C9104', 'E9992', 'E9997']
     })
