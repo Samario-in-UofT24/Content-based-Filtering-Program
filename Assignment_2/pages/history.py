@@ -4,13 +4,15 @@ This file handles the search history page of the application, allowing users to 
 their previous searches and access cached recommendations.
 """
 import streamlit as st
-from recommend_new import recommend_and_visualize
-from steam_api import get_game_image_url, get_game_details
+from Assignment_2.recommend_new import recommend_and_visualize
+from Assignment_2.steam_api import get_game_image_url, get_game_details
 
 
 def featured_game() -> None:
-    """Display detailed information about the top recommended game.
     """
+    Display detailed information about the top recommended game.
+    """
+
     top_game = st.session_state['recommendations']['games'][0]
     if top_game:
         with st.spinner(f"Loading details for {top_game}..."):
@@ -51,7 +53,8 @@ def featured_game() -> None:
 
 
 def show_game_recommendations(game: str) -> None:
-    """Display recommendations for a specific game.
+    """
+    Display recommendations for a specific game.
 
     Args:
         game: The name of the game to show recommendations for
@@ -109,40 +112,34 @@ def show_game_recommendations(game: str) -> None:
         featured_game()
 
 
-def app() -> None:
-    """Run the search history page of the Streamlit application."""
-    st.set_page_config(
-        page_title="Search History - Game Recommender",
-        page_icon="🎮",
-        layout="wide"
-    )
+st.set_page_config(
+    page_title="Search History - Game Recommender",
+    page_icon="🎮",
+    layout="wide"
+)
 
-    st.title("Your Search History")
+st.title("Your Search History")
 
-    with st.sidebar:
-        st.markdown("## Navigation")
-        st.info("""
-        - **Home**: Search for new recommendations
-        - **Search History**: View your recent searches
-        - **Visualization**: Explore game relationships
-        """)
+with st.sidebar:
+    st.markdown("## Navigation")
+    st.info("""
+    - **Home**: Search for new recommendations
+    - **Search History**: View your recent searches
+    - **Visualization**: Explore game relationships
+    """)
 
-    if 'search_history' not in st.session_state or not st.session_state.search_history:
-        st.info("You haven't searched for any games yet. Go to the home page to start recommending games!")
-    else:
-        st.write("Here are your recent searches. Click on any game to see its recommendations again.")
+if 'search_history' not in st.session_state or not st.session_state.search_history:
+    st.info("You haven't searched for any games yet. Go to the home page to start recommending games!")
+else:
+    st.write("Here are your recent searches. Click on any game to see its recommendations again.")
 
-        # Display search history
-        cols = st.columns(3)
+    # Display search history
+    cols = st.columns(3)
 
-        for i, game in enumerate(st.session_state.search_history):
-            with cols[i % 3]:
-                st.markdown(f"**{i + 1}. {game}**")
+    for i, game in enumerate(st.session_state.search_history):
+        with cols[i % 3]:
+            st.markdown(f"**{i + 1}. {game}**")
 
-                # show recommendation
-                if st.button(f"Show Recommendations", key=f"history_{i}"):
-                    show_game_recommendations(game)
-
-
-# Call the app function
-app()
+            # show recommendation
+            if st.button(f"Show Recommendations", key=f"history_{i}"):
+                show_game_recommendations(game)

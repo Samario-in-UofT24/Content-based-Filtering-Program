@@ -5,7 +5,7 @@ of game recommendations, genre distributions, and score comparisons.
 """
 import streamlit as st
 import plotly.express as px
-from ADT_graph import build_recommendation_graph
+from Assignment_2.ADT_graph import build_recommendation_graph
 
 
 def create_genre_distribution_chart(recommended_games: list, genre_map: dict) -> px.bar:
@@ -69,66 +69,60 @@ def create_score_comparison_chart(recommended_games: list, score_map: dict) -> p
     return fig
 
 
-def app() -> None:
-    """Run the visualization page of the Streamlit application."""
-    st.set_page_config(
-        page_title="Game Visualization",
-        page_icon="📊",
-        layout="wide"
-    )
+st.set_page_config(
+    page_title="Game Visualization",
+    page_icon="📊",
+    layout="wide"
+)
 
-    st.title("📊 Game Recommendation Visualization")
+st.title("📊 Game Recommendation Visualization")
 
-    # Check if recommendations exist in session state
-    if 'recommendations' in st.session_state and 'favorite_game' in st.session_state:
-        # Add sidebar navigation tips
-        with st.sidebar:
-            st.markdown("## Navigation")
-            st.info("""
-            - **Home**: Search for new recommendations
-            - **Search History**: View your recent searches
-            - **Visualization**: Explore game relationships
-            """)
+# Check if recommendations exist in session state
+if 'recommendations' in st.session_state and 'favorite_game' in st.session_state:
+    # Add sidebar navigation tips
+    with st.sidebar:
+        st.markdown("## Navigation")
+        st.info("""
+        - **Home**: Search for new recommendations
+        - **Search History**: View your recent searches
+        - **Visualization**: Explore game relationships
+        """)
 
-        st.write(f"Visualization for recommendations based on: **{st.session_state.favorite_game}**")
+    st.write(f"Visualization for recommendations based on: **{st.session_state.favorite_game}**")
 
-        recommendations = st.session_state.recommendations
-        liked_game = st.session_state.favorite_game
-        recommended_games = recommendations['games']
-        score_map = recommendations['scores']
-        genre_map = recommendations['genres']
+    recommendations = st.session_state.recommendations
+    liked_game = st.session_state.favorite_game
+    recommended_games = recommendations['games']
+    score_map = recommendations['scores']
+    genre_map = recommendations['genres']
 
-        # Create visualization
-        st.subheader("Game Relationship Graph")
-        with st.spinner("Generating visualization..."):
-            rec_graph = build_recommendation_graph(
-                liked_game,
-                score_map,
-                recommended_games,
-                genre_map
-            )
+    # Create visualization
+    st.subheader("Game Relationship Graph")
+    with st.spinner("Generating visualization..."):
+        rec_graph = build_recommendation_graph(
+            liked_game,
+            score_map,
+            recommended_games,
+            genre_map
+        )
 
-            # the plotly figure
-            fig = rec_graph.get_figure()
-            st.plotly_chart(fig, use_container_width=True)
+        # the plotly figure
+        fig = rec_graph.get_figure()
+        st.plotly_chart(fig, use_container_width=True)
 
-        # Additional visualizations
-        col1, col2 = st.columns(2)
+    # Additional visualizations
+    col1, col2 = st.columns(2)
 
-        with col1:
-            st.subheader("Genre Distribution")
-            genre_chart = create_genre_distribution_chart(recommended_games, genre_map)
-            st.plotly_chart(genre_chart, use_container_width=True)
+    with col1:
+        st.subheader("Genre Distribution")
+        genre_chart = create_genre_distribution_chart(recommended_games, genre_map)
+        st.plotly_chart(genre_chart, use_container_width=True)
 
-        with col2:
-            st.subheader("Score Comparison")
-            score_chart = create_score_comparison_chart(recommended_games, score_map)
-            st.plotly_chart(score_chart, use_container_width=True)
+    with col2:
+        st.subheader("Score Comparison")
+        score_chart = create_score_comparison_chart(recommended_games, score_map)
+        st.plotly_chart(score_chart, use_container_width=True)
 
-    else:
-        st.warning("No recommendations found. Please go to the main page and search for a game first.")
-        st.info("Click on the 'Game Recommender' link in the sidebar to go to the main page.")
-
-
-# Call the app function
-app()
+else:
+    st.warning("No recommendations found. Please go to the main page and search for a game first.")
+    st.info("Click on the 'Game Recommender' link in the sidebar to go to the main page.")

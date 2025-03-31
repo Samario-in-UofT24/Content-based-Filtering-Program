@@ -3,14 +3,18 @@ This is the core mechanism of recommendation based on filtered data.
 """
 from math import log
 import json
-from ADT_graph import _Vertex, load_graph_from_filtered_data, build_recommendation_graph
-from ADT_tree import Tree, build_genre_tree
+import os
+from Assignment_2.ADT_graph import _Vertex, load_graph_from_filtered_data, build_recommendation_graph
+from Assignment_2.ADT_tree import Tree, build_genre_tree
 
-# Load the game data for loading
-with open('classified_game_extraction.json', encoding='utf-8') as f:
+# Get the absolute path
+SCRIPT_DIR = os.path.dirname(os.path.abspath(__file__))
+
+# Load the game data using path relative to this script
+with open(os.path.join(SCRIPT_DIR, 'classified_game_extraction.json'), encoding='utf-8') as f:
     GAMES_DATA = json.load(f)
 
-LOADED_GRAPH = load_graph_from_filtered_data('filtered_data.json')
+LOADED_GRAPH = load_graph_from_filtered_data(os.path.join(SCRIPT_DIR, 'filtered_data.json'))
 LOADED_GENRE_TREE = build_genre_tree(GAMES_DATA)
 LOADED_VERTICES = LOADED_GRAPH.get_all_vertices()
 
