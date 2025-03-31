@@ -3,6 +3,11 @@ import json
 
 
 def get_game_info(app_id):
+    """
+    Get the genre of a game from Steam.
+    app_id: The app ID of the game to get the genre of.
+    """
+
     data = {
         "request": "appdetails",
         "appid": str(app_id)

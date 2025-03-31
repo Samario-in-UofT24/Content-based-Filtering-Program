@@ -6,9 +6,13 @@ from typing import Any, Optional
 from math import log, sqrt
 from collections import defaultdict
 import json
+import os
 from vaderSentiment.vaderSentiment import SentimentIntensityAnalyzer
 import networkx as nx
 import plotly.graph_objects as go
+
+# Get the directory where this script is located
+SCRIPT_DIR = os.path.dirname(os.path.abspath(__file__))
 
 
 class _Vertex:
@@ -222,9 +226,13 @@ class SimpleGameGraph:
         """
         self.graph.add_edge(game1, game2, weight=weight)
 
-    def visualize(self) -> None:
+    def get_figure(self) -> go.Figure:
         """
-        Display the graph using Plotly with genre and score information.
+        Generate and return a plotly figure for visualization.
+        This can be used with Streamlit's st.plotly_chart().
+
+        Returns:
+            A plotly figure object
         """
         pos = nx.spring_layout(self.graph, seed=42)  # Use shell_layout or manual pos if needed
 
@@ -284,7 +292,7 @@ class SimpleGameGraph:
                             xaxis={"showgrid": False, "zeroline": False},
                             yaxis={"showgrid": False, "zeroline": False}))
 
-        fig.show()
+        return fig
 
 
 def build_recommendation_graph(liked_game: str,

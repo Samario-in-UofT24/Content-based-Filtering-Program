@@ -165,6 +165,41 @@ class Tree:
                 genres.append(subtree._root)
         return genres
 
+    # need to edit
+    def get_all_game_names(self) -> list[str]:
+        """
+        Return a list of all game names in the tree (filtering out genres).
+        """
+
+        if self.is_empty():
+            return []
+
+        # Assuming that a game node has no subtrees (or some other distinguishing property)
+        if not self._subtrees:
+            return [self._root]
+
+        names = []
+        for subtree in self._subtrees:
+            names.extend(subtree.get_all_game_names())
+        return names
+
+    def get_precomputed_genre_map(self) -> dict[str, set]:
+        """
+        Compute and cache a mapping from each game name to its set of genres.
+        This function will compute the map only once and reuse it in subsequent calls.
+        """
+        global _precomputed_genre_map
+        if _precomputed_genre_map is None:
+            _precomputed_genre_map = {}
+            # Assumes your Tree class has a method get_all_game_names() to iterate over game names.
+            for game in self.get_all_game_names():
+                # Convert the list of genres to a set for fast intersection checks.
+                _precomputed_genre_map[game] = set(self.get_genres(game))
+        return _precomputed_genre_map
+
+
+_precomputed_genre_map: Optional[dict[str, set]] = None
+
 
 def build_genre_tree(data: list[dict]) -> Tree:
     """
