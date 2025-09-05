@@ -1,1 +1,1 @@
-# CSC111_24-25
+# Game designed, finished by Samario Liu and Ethan Duan
